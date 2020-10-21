@@ -187,7 +187,7 @@ def attr2rdf(attr_name):
     """
     
     def to_rdf(attr_name):
-        prefix, predicate = attr_name.split('_', 1)
+        prefix, predicate = attr_name.rsplit('_', 1)
         ns = get_namespace_url(prefix)
         try:
             return ns[predicate]
