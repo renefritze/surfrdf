@@ -53,7 +53,7 @@ The example below shows how to query a resource using the rdflib in-memory backe
     >>> from surf import *
     >>> store = Store(reader='rdflib',
     ...               writer='rdflib',
-    ...               rdflib_store='IOMemory')
+    ...               rdflib_store='default')
     >>> session = Session(store)
     >>> store.load_triples(source='http://www.w3.org/People/Berners-Lee/card.rdf')
     True

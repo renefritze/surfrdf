@@ -32,7 +32,7 @@ def test_rdflib_store():
 def test_rdflib_load():
     store = surf.Store(reader="rdflib",
                        writer="rdflib",
-                       rdflib_store="IOMemory")
+                       rdflib_store="default")
 
     print("Load RDF data")
     store.load_triples(source=_card_file)
@@ -42,7 +42,7 @@ def test_rdflib_load():
 def test_rdflib_query():
     store = surf.Store(reader="rdflib",
                        writer="rdflib",
-                       rdflib_store="IOMemory")
+                       rdflib_store="default")
     session = surf.Session(store)
     store.load_triples(source=_card_file)
 

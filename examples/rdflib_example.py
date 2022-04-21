@@ -7,7 +7,7 @@ set_logger_level(logging.DEBUG)
 
 store = surf.Store(reader="rdflib",
                    writer="rdflib",
-                   rdflib_store="IOMemory")
+                   rdflib_store="default")
 
 session = surf.Session(store)
 

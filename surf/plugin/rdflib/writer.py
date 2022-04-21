@@ -55,7 +55,7 @@ class WriterPlugin(RDFWriter):
 
             self._graph = self.reader.graph
         else:
-            self._rdflib_store = kwargs.get("rdflib_store", "IOMemory")
+            self._rdflib_store = kwargs.get("rdflib_store", "default")
             self._rdflib_identifier = kwargs.get("rdflib_identifier")
             self._commit_pending_transaction_on_close = \
                 kwargs.get("commit_pending_transaction_on_close", True)

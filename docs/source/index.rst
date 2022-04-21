@@ -25,7 +25,7 @@ Quick start:
         
         store = Store(reader='rdflib',
                     writer='rdflib',
-                    rdflib_store='IOMemory')
+                    rdflib_store='default')
         
         session = Session(store)
         

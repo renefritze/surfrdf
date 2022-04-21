@@ -5,7 +5,7 @@ The `rdflib` Plugin
     :header: "Parameter", "Default Value", "Description"
     :widths: 20, 20, 60
     
-    `rdflib_store`, `IOMemory`, Default rdflib storage backend to use
+    `rdflib_store`, `default`, Default rdflib storage backend to use
     `rdflib_identifier`, `None`, Identifier to use for default graph
     
     
@@ -16,7 +16,7 @@ The parameters are passed as key-value arguments to the
 
     s = Store(  reader            =   "rdflib",
                 writer            =   "rdflib",
-                rdflib_store      =   "IOMemory",
+                rdflib_store      =   "default",
                 rdflib_identifier =   URIRef("http://my_graph_uri"))
                 
                 

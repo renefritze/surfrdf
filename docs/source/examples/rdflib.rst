@@ -9,7 +9,7 @@ Print all persons mentioned in Tim Berners-Lee's FOAF document:
     
     store = surf.Store(reader = "rdflib",
                        writer = "rdflib",
-                       rdflib_store = "IOMemory")
+                       rdflib_store = "default")
     
     session = surf.Session(store)
     
