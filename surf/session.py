@@ -37,7 +37,7 @@ from builtins import str
 from builtins import object
 try:
     # Python 2
-    from __builtin__ import str as builtin_str
+    from builtins import str as builtin_str
 except ImportError:
     # Python 3
     from builtins import str as builtin_str

@@ -11,45 +11,45 @@ local = surf.Store(reader = 'allegro_franz',
                    catalog = 'repositories',
                    repository = 'surf_test')
 
-print 'Create the session'
+print('Create the session')
 session = surf.Session()
 session.enable_logging = True
 session['dbpedia'] = dbpedia
 session['local'] = local
 
-print '------------------------------------------------------------------------'
-print 'DBPEDIA'
+print('------------------------------------------------------------------------')
+print('DBPEDIA')
 PhilCollinsAlbums = session.get_class(surf.ns.YAGO['PhilCollinsAlbums'],
                                       store = 'dbpedia')
 
 all_albums = PhilCollinsAlbums.all()
 
-print 'Phill Collins has %d albums on dbpedia' % len(all_albums)
+print('Phill Collins has %d albums on dbpedia' % len(all_albums))
 first_album = all_albums.first()
 first_album.load()
 
-print 'All covers'
+print('All covers')
 for a in all_albums:
     if a.dbpedia_name:
-        print '\tCover %s for "%s"' % (a.dbpedia_cover.first, 
-                                       a.dbpedia_name.first)
+        print('\tCover %s for "%s"' % (a.dbpedia_cover.first, 
+                                       a.dbpedia_name.first))
 
-print '------------------------------------------------------------------------'
-print 'LOCAL'
+print('------------------------------------------------------------------------')
+print('LOCAL')
 
 local.clear()
 
-print 'Define a namespace'
+print('Define a namespace')
 surf.ns.register(surf = 'http://surf.test/ns#')
 
-print 'Create some classes'
+print('Create some classes')
 Actor = session.get_class(surf.ns.SURF['Actor'], store = 'local')
 Movie = session.get_class(surf.ns.SURF['Movie'], store = 'local')
 
-print Actor, Actor.uri
-print Movie, Movie.uri
+print(Actor, Actor.uri)
+print(Movie, Movie.uri)
 
-print 'Create some instances'
+print('Create some instances')
 m1 = Movie('http://baseuri/m1')
 m1.surf_title = "Movie 1"
 
@@ -76,27 +76,27 @@ a2.surf_adress = "A different adress"
 a2.surf_movies = [m3, m4, m5]
 
 # saving
-print 'Comitting ... '
+print('Comitting ... ')
 session.commit()
 
 
-print 'Retrieving from store'
+print('Retrieving from store')
 actors = list(Actor.all())
 movies = list(Movie.all())
 
-print 'Actor 1 cmp: ', a1 == actors[0]
-print 'Actor 1 cmp: ', a1 == actors[1]
-print 'Actor in list : ', a1 in actors
+print('Actor 1 cmp: ', a1 == actors[0])
+print('Actor 1 cmp: ', a1 == actors[1])
+print('Actor in list : ', a1 in actors)
 
-print 'All movies %d' % len(movies)
+print('All movies %d' % len(movies))
 for m in movies:
-    print m.surf_title
+    print(m.surf_title)
 
-print 'All actors %d' % len(actors)
+print('All actors %d' % len(actors))
 for a in actors:
-    print a.surf_name
+    print(a.surf_name)
     actor_movies = a.surf_movies
     for am in actor_movies:
-        print '\tStarred in %s' % am.surf_title
+        print('\tStarred in %s' % am.surf_title)
 
-print "Done."
+print("Done.")

@@ -134,7 +134,7 @@ def _validate_variable(variable):
                             expression, or supported aggregate %s)'''
                          % (variable, str(Query.AGGREGATE_FUNCTIONS)))
     else:
-        print(variable, type(variable), str.__name__)
+        print((variable, type(variable), str.__name__))
         raise ValueError('''Unknown variable type, all variables must either
                          start with a "?" or be among the recognized aggregates :
                          %s''' % Query.AGGREGATE_FUNCTIONS)
@@ -359,7 +359,7 @@ class Query(object):
         elif isinstance(filter, basestring):
             filter = Filter(filter)
         elif not isinstance(filter, Filter):
-            print(type(filter))
+            print((type(filter)))
             raise ValueError('the filter must be of type Filter, str or unicode following the syntax of the query language')
         self._data.append(filter)
         return self

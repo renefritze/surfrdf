@@ -55,9 +55,9 @@ dir_surf = os.path.join(os.path.split(os.path.split(os.path.split(__file__)[0])[
 dir_docs = os.path.abspath(os.path.dirname(__file__))
 dir_plugins = os.path.join(os.path.split(dir_surf)[0],'plugins')
 
-print 'SURF     DIR = ',dir_surf
-print 'DOCS     DIR = ',dir_docs
-print 'PLUGINS  DIR = ',dir_plugins
+print('SURF     DIR = ',dir_surf)
+print('DOCS     DIR = ',dir_docs)
+print('PLUGINS  DIR = ',dir_plugins)
 
 sys.path.append(os.path.abspath(dir_plugins))
 sys.path.append(os.path.abspath(dir_docs))
